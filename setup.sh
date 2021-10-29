@@ -23,5 +23,5 @@ cp .env app/go-scripts/.env
 # Load DB Backups to /neo4j directory
 cp app/deltadb-backup/nfl.zip app/neo4j/nfl.zip
 cd app/neo4j
-unzip nfl.zip
+unzip nfl.zip -d deltadb/
 rm -rf __MACOSX
