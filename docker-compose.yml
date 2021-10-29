@@ -1,0 +1,45 @@
+version: "3.0"
+services:
+  neo4j:
+    hostname: neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    build:
+      dockerfile: Dockerfile
+      context: app/neo4j
+      args:
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
+    image: jshwilliams/neo4j:latest
+  redis:
+    hostname: redis
+    ports:
+      - 6379:6379
+    build:
+      dockerfile: Dockerfile
+      context: app/redis
+    image: jshwilliams/redis:latest
+  deltadb-api:
+    hostname: deltadbapi
+    ports:
+      - 5000:5000
+    build:
+      dockerfile: Dockerfile
+      context: app/deltadb-api
+    image: jshwilliams/deltadb-api:latest
+  deltadb-collector:
+    hostname: deltadbcollector
+    build:
+      dockerfile: Dockerfile
+      context: app/go-utils
+    image: jshwilliams/deltadb-collector:latest
+  deltadb-ui:
+    hostname: deltadbui
+    ports:
+      - 3000:3000
+    build:
+      dockerfile: Dockerfile
+      context: app/deltadb-ui
+      args:
+      - PROXY_URL=${PROXY_URL}
+    image: jshwilliams/deltadb-ui:latest
