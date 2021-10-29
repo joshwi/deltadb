@@ -1,5 +1,7 @@
-.env
+*.env
+*.DS_Store
 /app/deltadb-api
 /app/deltadb-ui
 /app/neo4j/*.zip
+/app/neo4j/*.csv
 /app/neo4j/deltadb

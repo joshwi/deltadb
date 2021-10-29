@@ -31,7 +31,7 @@ services:
     hostname: deltadbcollector
     build:
       dockerfile: Dockerfile
-      context: app/go-utils
+      context: app/go-scripts
     image: jshwilliams/deltadb-collector:latest
   deltadb-ui:
     hostname: deltadbui
