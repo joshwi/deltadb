@@ -1,5 +1,4 @@
-FROM neo4j/neo4j-arm64-experimental:4.2.5-arm64
-# FROM neo4j:4.2.5
+FROM neo4j:4.2.5
 ARG NEO4J_PASSWORD
 ENV NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
 RUN chown -R neo4j:neo4j import
