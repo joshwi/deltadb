@@ -11,6 +11,8 @@ services:
       args:
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
     image: jshwilliams/neo4j:latest
+    volumes:
+      - /home/josh/repos:/var/lib/neo4j/import
   redis:
     hostname: redis
     ports:
