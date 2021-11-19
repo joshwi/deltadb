@@ -37,14 +37,14 @@ services:
     image: jshwilliams/deltadb-collector:latest
     volumes:
       - /home/josh/repos:/app/repos
-  # deltadb-ui:
-  #   hostname: deltadbui
-  #   ports:
-  #     - 80:80
-  #     - 3000:3000
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: app/deltadb-ui
-  #     args:
-  #     - PROXY_URL=${PROXY_URL}
-  #   image: jshwilliams/deltadb-ui:latest
+  deltadb-ui:
+    hostname: deltadbui
+    ports:
+      - 80:80
+      - 3000:3000
+    build:
+      dockerfile: Dockerfile
+      context: app/deltadb-ui
+      args:
+      - PROXY_URL=${PROXY_URL}
+    image: jshwilliams/deltadb-ui:latest
