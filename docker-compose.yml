@@ -12,7 +12,7 @@ services:
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
     image: jshwilliams/neo4j:latest
     volumes:
-      - /home/josh/repos:/var/lib/neo4j/import
+      - /home/josh/project/repos:/var/lib/neo4j/import
   redis:
     hostname: redis
     ports:
@@ -36,7 +36,7 @@ services:
       context: app/go-scripts
     image: jshwilliams/deltadb-collector:latest
     volumes:
-      - /home/josh/repos:/app/repos
+      - /home/josh/project/repos:/app/repos
   deltadb-ui:
     hostname: deltadbui
     ports:
