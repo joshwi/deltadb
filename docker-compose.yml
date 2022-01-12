@@ -41,10 +41,12 @@ services:
     hostname: deltadbui
     ports:
       - 80:80
-      - 3000:3000
+      - 443:443
     build:
       dockerfile: Dockerfile
       context: app/deltadb-ui
       args:
       - PROXY_URL=${PROXY_URL}
     image: jshwilliams/deltadb-ui:latest
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
