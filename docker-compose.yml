@@ -21,22 +21,28 @@ services:
       dockerfile: Dockerfile
       context: app/redis
     image: jshwilliams/redis:latest
-  deltadb-api:
-    hostname: deltadbapi
-    ports:
-      - 5000:5000
-    build:
-      dockerfile: Dockerfile
-      context: app/deltadb-api
-    image: jshwilliams/deltadb-api:latest
   deltadb-collector:
     hostname: deltadbcollector
+    env_file:
+      - .env
     build:
       dockerfile: Dockerfile
       context: app/go-scripts
     image: jshwilliams/deltadb-collector:latest
     volumes:
       - ./repos:/app/repos
+  deltadb-api:
+    hostname: deltadbapi
+    env_file:
+      - .env
+    ports:
+      - 5000:5000
+    build:
+      dockerfile: Dockerfile
+      context: app/deltadb-api
+    image: jshwilliams/deltadb-api:latest
+    volumes:
+      - ./repos/deltadb-artifacts/api/static:/app/static
   deltadb-ui:
     hostname: deltadbui
     ports:
@@ -46,9 +52,9 @@ services:
       dockerfile: Dockerfile
       context: app/deltadb-ui
       args:
-      - PROXY_URL=${PROXY_URL}
       - AUTH0_SERVICE_HOST=${AUTH0_SERVICE_HOST}
-      - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID}
+      - AUTH0_UI_CLIENT_ID=${AUTH0_UI_CLIENT_ID}
+      - MAPBOX_API_KEY=${MAPBOX_API_KEY}
     image: jshwilliams/deltadb-ui:latest
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt

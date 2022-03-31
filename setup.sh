@@ -14,7 +14,9 @@ git clone https://github.com/joshwi/deltadb-api.git
 git clone https://github.com/joshwi/go-scripts.git
 cd ../repos
 rm -rf deltadb-backup
+rm -rf deltadb-artifacts
 git clone https://github.com/joshwi/deltadb-backup.git
+git clone https://github.com/joshwi/deltadb-artifacts.git
 cd ..
 # Copy .env to all subdirectories
 cp .env app/deltadb-api/app/.env
