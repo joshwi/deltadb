@@ -2,9 +2,6 @@
 mkdir repos
 cd app
 # Make sure all downloads and repositories are removed
-rm neo4j/*.zip
-rm -rf neo4j/deltadb
-rm -rf neo4j/__MACOSX
 rm -rf deltadb-ui
 rm -rf deltadb-api
 rm -rf go-scripts
@@ -24,8 +21,3 @@ cp .env app/deltadb-ui/.env
 cp .env app/deltadb-ui/app/.env
 cp .env app/neo4j/.env
 cp .env app/go-scripts/.env
-# Load DB Backups to /neo4j directory
-cp repos/deltadb-backup/*.zip app/neo4j/
-cd app/neo4j
-unzip "*.zip" -d deltadb/
-rm -rf __MACOSX
