@@ -14,6 +14,10 @@
 
 - deltaDB Server is an REST API server that communicates with the React.js frontend, Redis Cache, and Neo4j Graph DB.
 
+### deltaDB Collector
+
+- deltaDB Collector is a collection of go scripts that perform templated http collection and regex parsing.
+
 ### Neo4j DB
 
 - Graph DB Backend for storing key value nodes and relationships between nodes.
