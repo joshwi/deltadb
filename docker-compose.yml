@@ -42,6 +42,7 @@ services:
       context: app/deltadb-api
     image: jshwilliams/deltadb-api:latest
     volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
       - ./repos/deltadb-artifacts/api/static:/app/static
   deltadb-ui:
     hostname: deltadbui

@@ -1,5 +1,8 @@
 # Change to /app directory
+rm -rf repos
+rm -rf logs
 mkdir repos
+mkdir logs
 cd app
 # Make sure all downloads and repositories are removed
 rm -rf deltadb-ui
